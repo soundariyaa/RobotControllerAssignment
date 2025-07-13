@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace RobotControllerApi.Core.Models
 {
     public class RobotRequest
-    {
+    {       
         public string Name { get; set; } = "Robo1";
         public int RoomId { get; set; }
         public int X { get; set; }
@@ -18,6 +18,11 @@ namespace RobotControllerApi.Core.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Direction Facing { get; set; }
         public Room? Room { get; set; }
-        public string Commands { get; set; } = string.Empty;
+        private string _commands = string.Empty;
+        public string Commands
+        {
+            get => _commands;
+            set => _commands = value?.ToUpperInvariant() ?? string.Empty;
+        }
     }
 }

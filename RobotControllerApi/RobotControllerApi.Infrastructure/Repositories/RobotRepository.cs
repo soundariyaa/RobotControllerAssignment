@@ -1,4 +1,6 @@
-﻿using RobotControllerApi.Core.Entities;
+﻿using Microsoft.Extensions.Logging;
+using RobotControllerApi.Core.Entities;
+using RobotControllerApi.Core.Exceptions;
 using RobotControllerApi.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,16 +13,26 @@ namespace RobotControllerApi.Infrastructure.Repositories
    public class RobotRepository : IRobotRepository
     {
         private readonly RoboDbContext _context;
+        private readonly ILogger<RobotRepository> _logger;
 
-        public RobotRepository(RoboDbContext context)
+        public RobotRepository(RoboDbContext context, ILogger<RobotRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task SaveRobotAsync(Robot robot)
         {
-            _context.Robots.Add(robot);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Robots.Add(robot);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error saving robot to the database.");
+                throw new DbException("Something went wrong saving the Robot");
+            }
         }
     }
 }

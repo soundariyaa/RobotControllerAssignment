@@ -14,6 +14,10 @@ namespace RobotControllerApi.Infrastructure.Repositories
         public DbSet<Robot> Robots { get; set; }
         public DbSet<Room> Rooms { get; set; }
 
+        public RoboDbContext()
+        {
+            
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

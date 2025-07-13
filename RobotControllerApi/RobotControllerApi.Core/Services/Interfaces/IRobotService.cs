@@ -10,7 +10,7 @@ namespace RobotControllerApi.Core.Services.Interfaces
 {
    public interface IRobotService
     {
-        ResponseReport RobotExecuteCommandsAsync(RobotRequest robot, int roomWidth, int roomHeight);
-        Task<Robot> ExecuteAndSaveRobotAsync(RobotRequest request);
+        ResponseReport RobotExecuteCommands(RobotRequest robot, int roomWidth, int roomHeight);
+        Task<ResponseReport> ExecuteAndSaveRobotAsync(RobotRequest request);
     }
 }

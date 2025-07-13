@@ -25,17 +25,9 @@ namespace RobotControllerApi.Infrastructure.Services.Implementations
             _robotRepository = robotRepository ?? throw new ArgumentNullException(nameof(robotRepository));
            
         }
-        public ResponseReport RobotExecuteCommandsAsync(RobotRequest robot, int roomWidth, int roomHeight)
+        public ResponseReport RobotExecuteCommands(RobotRequest robot, int roomWidth, int roomHeight)
         {
-            if (string.IsNullOrEmpty(robot.Commands))
-                throw new ArgumentException("Commands cannot be null or empty.", nameof(robot.Commands));
-
-            if (robot == null)
-                throw new ArgumentNullException(nameof(robot));
-
-            if (robot.Room == null)
-                throw new ArgumentNullException(nameof(robot.Room));
-
+            
             int x = robot.X;
             int y = robot.Y;
             Direction facing = robot.Facing;
@@ -68,9 +60,9 @@ namespace RobotControllerApi.Infrastructure.Services.Implementations
             };
         }
 
-        public async Task<Robot> ExecuteAndSaveRobotAsync(RobotRequest request)
+        public async Task<ResponseReport> ExecuteAndSaveRobotAsync(RobotRequest request)
         {          
-            var result = RobotExecuteCommandsAsync(request, request.Room.Width, request.Room.Height);
+            var result = RobotExecuteCommands(request, request.Room.Width, request.Room.Height);
 
             var robot = new Robot
             {
@@ -84,7 +76,7 @@ namespace RobotControllerApi.Infrastructure.Services.Implementations
                         
             await _robotRepository.SaveRobotAsync(robot);
 
-            return robot;
+            return result;
         }
 
         private Direction TurnLeft(Direction facing) => facing switch
@@ -106,32 +98,22 @@ namespace RobotControllerApi.Infrastructure.Services.Implementations
         };
 
         private (int x, int y) MoveForward(int x, int y, Direction facing, int width, int height)
-        {
-            try
+        { 
+            int newX = x;
+            int newY = y;
+            switch (facing)
             {
-
-                int newX = x;
-                int newY = y;
-                switch (facing)
-                {
-                    case Direction.N: newY--; break;
-                    case Direction.E: newX++; break;
-                    case Direction.S: newY++; break;
-                    case Direction.W: newX--; break;
-                }
-
-                if (newX < 0 || newX >= width || newY < 0 || newY >= height)
-                    throw new InvalidOperationException("Robot moved outside the room bounds.");
-
-                _logger.LogInformation($"Robot moved to position ({newX}, {newY}) facing {facing}.");
-                return (newX, newY);
+                case Direction.N: newY--; break;
+                case Direction.E: newX++; break;
+                case Direction.S: newY++; break;
+                case Direction.W: newX--; break;
             }
-            catch (Exception ex)
-            {
-                _logger.LogInformation("Robot moved outside the room bounds.");
-                throw new InvalidOperationException("Error while moving the robot.", ex);
-            }
-        }
-        
+
+            if (newX < 0 || newX >= width || newY < 0 || newY >= height)
+                throw new InvalidOperationException("Robot moved outside the room bounds.");
+
+            _logger.LogInformation($"Robot moved to position ({newX}, {newY}) facing {facing}.");
+            return (newX, newY);                     
+        }        
     }
 }
