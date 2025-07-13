@@ -1,0 +1,7 @@
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\bin\Debug\net8.0\CoverletSourceRootsMapping_RobotControllerApi.Test
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\obj\Debug\net8.0\RobotControllerApi.Test.csproj.AssemblyReference.cache
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\obj\Debug\net8.0\RobotControllerApi.Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\obj\Debug\net8.0\RobotControllerApi.Test.AssemblyInfoInputs.cache
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\obj\Debug\net8.0\RobotControllerApi.Test.AssemblyInfo.cs
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\obj\Debug\net8.0\RobotControllerApi.Test.csproj.CoreCompileInputs.cache
+C:\Users\sound\source\repos\RobotControllerAssignment\RobotControllerApi\RobotControllerAssignment.Test\obj\Debug\net8.0\RobotControllerApi.Test.sourcelink.json
