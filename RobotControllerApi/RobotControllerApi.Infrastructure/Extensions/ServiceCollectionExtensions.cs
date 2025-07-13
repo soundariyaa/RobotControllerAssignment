@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using RobotControllerApi.Core.Repositories;
+using RobotControllerApi.Core.Services.Interfaces;
 using RobotControllerApi.Infrastructure.Repositories;
+using RobotControllerApi.Infrastructure.Services.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +21,10 @@ namespace RobotControllerApi.Infrastructure.Extensions
                 options.UseSqlServer(connectionString);
             });
 
-            return services;
+            return services
+                .AddScoped<IRobotService, RobotService>()
+                .AddScoped<IRobotRepository, RobotRepository>()
+                .AddDbContext<RoboDbContext>(); 
         }
     }
 }

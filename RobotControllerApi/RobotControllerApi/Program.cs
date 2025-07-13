@@ -1,5 +1,8 @@
 using RobotControllerApi.Infrastructure.Extensions;
 using System.Text.Json.Serialization;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using RobotControllerApi.Core.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,9 @@ builder.Services.AddControllers().AddJsonOptions(op =>
     op.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters()
+    .AddValidatorsFromAssemblyContaining<RobotRequestValidator>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
