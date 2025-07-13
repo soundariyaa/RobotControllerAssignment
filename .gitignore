@@ -9,3 +9,10 @@
 /RobotControllerApi/RobotControllerApi.Core/obj
 /RobotControllerApi/RobotControllerApi.Infrastructure/bin/Debug/net8.0
 /RobotControllerApi/RobotControllerApi.Infrastructure/obj
+/RobotControllerApi/RobotControllerApi.Core.Test/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi.Core.Test/obj
+/RobotControllerApi/RobotControllerApi.Infrastructure.Test/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi.Infrastructure.Test/obj
+/RobotControllerApi/RobotControllerAssignment.Test/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi.Test/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi.Test/obj

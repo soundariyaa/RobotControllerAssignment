@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RobotControllerApi.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5459dda87e69167224933e1f4bd26fba0986864")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+081c1a8149d8c3b5300f0a3112e7250df89632b1")]
 [assembly: System.Reflection.AssemblyProductAttribute("RobotControllerApi.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RobotControllerApi.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
