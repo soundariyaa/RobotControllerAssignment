@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/RobotControllerApi/.vs
+/RobotControllerApi/RobotControllerApi/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi/obj
+/RobotControllerApi/RobotControllerApi.Core/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi.Core/obj
+/RobotControllerApi/RobotControllerApi.Infrastructure/bin/Debug/net8.0
+/RobotControllerApi/RobotControllerApi.Infrastructure/obj
